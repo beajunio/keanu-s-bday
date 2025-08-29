@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Keanu's B-day</title>
+<style>
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+  background: #fff0f6;
+  padding: 25px 40px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ff4d6d;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  box-shadow: 0 0 25px rgba(255,77,109,0.6);
+  animation: popIn 0.3s ease;
+  position: relative;
+}
+
+/* Close Button */
+#closeModal {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ff4d6d;
+  font-weight: bold;
+}
+
+/* Pop-in Animation */
+@keyframes popIn {
+  0%   { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* PAGE 2 */
+#page2 {
+  background: url('images/env.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+.envelope {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+  height: 70vh;
+  max-height: 700px;
+  background: #ffb6c1;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  cursor: pointer;
+  overflow: hidden;
+}
+.envelope:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: calc(50% - 1px) solid transparent;
+  border-right: calc(50% - 1px) solid transparent;
+  border-bottom: 35vh solid #ffc0cb;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  z-index: 1;
+}
+.envelope:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-left: calc(50% - 1px) solid transparent;
+  border-right: calc(50% - 1px) solid transparent;
+  border-top: 35vh solid #ff99aa;
+  border-radius: 0 0 20px 20px;
+  width: 100%;
+  z-index: 1;
+}
+.envelope button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 20px 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 15px rgba(255,105,180,0.7);
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+.envelope button:hover {
+  background: #d6336c;
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff8f0;
+  border: 5px solid #ffb6c1;
+  padding: 40px 50px;
+  border-radius: 30px;
+  box-shadow: 0 0 50px rgba(255,182,193,0.8);
+  width: 90vw;
+  max-width: 900px;
+  height: 80vh;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 1.4rem;
+  color: #ff69b4;
+  line-height: 1.7;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      #fff8f0,
+      #fff8f0 24px,
+      #ffd6e0 25px,
+      #fff8f0 26px
+    );
+  box-sizing: border-box;
+  z-index: 9999;
+}
+.popup p {
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+.popup button {
+  display: block;
+  margin: 0 auto;
+  background: #ff69b4;
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 700;
+  box-shadow: 0 6px 15px rgba(255,105,180,0.7);
+  transition: background-color 0.3s ease;
+}
+.popup button:hover {
+  background: #d6336c;
+}
+
+/* PAGE 3 */
+#page3 {
+  background: url('images/env.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+#page3 .heart {
+  position: relative;
+  width: 650px;
+  height: 650px;
+  filter: drop-shadow(0 0 15px rgba(244, 223, 43, 0.8));
+  margin-top: -30px;
+}
+#page3 .heart img {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 12px solid white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.6));
+  z-index: 1;
+}
+#page3 .heart img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 25px rgba(255, 105, 180, 0.8);
+  z-index: 10;
+}
+/* Positioning */
+#page3 .heart img:nth-child(1) { top: 10px; left: 120px; }
+#page3 .heart img:nth-child(2) { top: 10px; left: 350px; }
+#page3 .heart img:nth-child(3) { top: 170px; left: 20px; }
+#page3 .heart img:nth-child(4) { top: 160px; left: 230px; }
+#page3 .heart img:nth-child(5) { top: 170px; left: 440px; }
+#page3 .heart img:nth-child(6) { top: 340px; left: 120px; }
+#page3 .heart img:nth-child(7) { top: 340px; left: 350px; }
+#page3 .heart img:nth-child(8) { top: 510px; left: 230px; }
+
+.heart-btn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: #f4df2b;
+  color: #f4df2b;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(244, 223, 43, 0.8);
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  line-height: 1;
+}
+.heart-btn:hover {
+  background: #e6d41f;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* PAGE 4 */
+#page4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  animation: zoomBackground 20s ease-in-out infinite alternate;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+@keyframes zoomBackground {
+  from { background-size: 100% 100%; }
+  to { background-size: 110% 110%; }
+}
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 6px yellow;
+  animation: moveFirefly 8s infinite ease-in-out;
+}
+.firefly:nth-child(2) { animation-delay: 1s; left: 20%; top: 40%; }
+.firefly:nth-child(3) { animation-delay: 2s; left: 70%; top: 60%; }
+.firefly:nth-child(4) { animation-delay: 3s; left: 40%; top: 20%; }
+.firefly:nth-child(5) { animation-delay: 4s; left: 80%; top: 30%; }
+@keyframes moveFirefly {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  50%  { transform: translate(30px, -40px) scale(1.5); opacity: 0.6; }
+  100% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+
+/* Stars Sparkle */
+.star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Typing + Fade */
+#typingMessage {
+  transition: opacity 2s ease-in-out;
+  white-space: pre-line;
+}
+
+/* Boyfriend fade in */
+#boyfriend {
+  margin-top: 20px;
+  font-size: 3rem;
+  color: #ff4d6d;
+  opacity: 0;
+  text-shadow: 0 0 15px #ff99aa, 0 0 25px #ff4d6d;
+}
+@keyframes fadeInHeartbeat {
+  0%   { opacity: 0; transform: scale(0.5); }
+  60%  { opacity: 1; transform: scale(1.2); }
+  80%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page" 
+     style="background:url('images/frontpage.png') no-repeat center center; background-size:cover; background-attachment:fixed; width:100%; height:100vh; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+
+  <div style="position:fixed; bottom:50px; width:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:10;">
+    <input type="password" id="passcode" placeholder="Enter Passcode" 
+           style="padding:10px; font-size:1.2rem; border:2px solid #ff69b4; border-radius:10px; text-align:center; margin-bottom:15px; width:200px;" />
+    <button onclick="checkPass()" 
+            style="padding:12px 25px; font-size:1.2rem; background:#ff69b4; color:white; border:none; border-radius:12px; cursor:pointer; box-shadow:0 6px 15px rgba(255,105,180,0.7);">
+      Enter
+    </button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page" style="display: none;">
+  <div class="envelope">
+    <button onclick="showLetter()">❤️</button>
+  </div>
+  <div class="popup" id="letter">
+    <p>To my Yang, 🎂💖</p>
+    <p>I’m still amazed at how we began. What I thought was just something small and not serious turned into something real. For a long time, To be honest I didn’t believe in love anymore and never thought I’d take the risk again.</p>
+    <p>But then you came. You were different—you showed me your true intentions without pretending. You made me feel safe, valued, and cared for in ways I’ve never felt before. You’re the first man who set a standard for me, the one who made me realize what I really deserve.
+</p>
+    <p>On your special day, I just want to thank you—for being real, for choosing me, and for proving that love can still be true. You are my unexpected blessing, the reason I took the chance again, and the one who turned my doubts into trust.</p>
+    <p>Your Yin,💖</p>
+    <button onclick="goGiftPage()">Here's my gift 🎁</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page" style="display: none;">
+  <div class="heart">
+    <img src="images/1st.jpg" />
+    <img src="images/2nd.jpg" />
+    <img src="images/3rd.jpg" />
+    <img src="images/4th.jpg" />
+    <img src="images/5th.jpg" />
+    <img src="images/6th.jpg" />
+    <img src="images/7th.jpg" />
+    <img src="images/8th.jpg" />
+  </div>
+  <button class="heart-btn" onclick="goFinal()" aria-label="Next">💛</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page" style="display: none;">
+  <div id="typingMessage"></div>
+  <div id="boyfriend">❤️ ...my boyfriend ❤️</div>
+  <!-- Fireflies -->
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="audio/yellow.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+function checkPass(){
+  const code = document.getElementById('passcode').value;
+  if(code === "0827"){
+    showPage(2);
+  } else {
+    alert("Try again Baby!");
+  }
+}
+function showLetter(){
+  document.getElementById('letter').style.display = 'block';
+}
+function goGiftPage(){
+  showPage(3);
+}
+function goFinal(){
+  showPage(4);
+  startTyping();
+  startStars();
+}
+function showPage(n){
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.getElementById('page'+n).style.display = 'flex';
+}
+
+// Typing + Fade Effect
+const firstMessage = "❤️ I love you, my Yang, my unexpected one, my everything,";
+let i = 0;
+function startTyping(){
+  i = 0;
+  const msg = document.getElementById("typingMessage");
+  msg.innerHTML = "";
+  msg.style.opacity = "1";
+  typeWriter();
+}
+function typeWriter() {
+  if (i < firstMessage.length) {
+    document.getElementById("typingMessage").innerHTML += firstMessage.charAt(i);
+    i++;
+    setTimeout(typeWriter, 100);
+  } else {
+    // Fade out after 2s
+    setTimeout(() => {
+      document.getElementById("typingMessage").style.opacity = "0";
+    }, 2000);
+
+    // Show "my boyfriend" after 5s
+    setTimeout(() => {
+      const bf = document.getElementById("boyfriend");
+      bf.style.animation = "fadeInHeartbeat 5s forwards";
+    }, 5000);
+  }
+}
+
+// Sparkle Stars
+function startStars(){
+  setInterval(() => {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.style.left = Math.random() * window.innerWidth + "px";
+    star.style.top = Math.random() * window.innerHeight + "px";
+    star.style.animationDuration = (1 + Math.random() * 2) + "s";
+    document.getElementById("page4").appendChild(star);
+    setTimeout(() => star.remove(), 3000);
+  }, 200);
+}
+
+// 🎵 Background Music Autoplay Fix
+const bgMusic = document.getElementById("bgMusic");
+function playMusic() {
+  bgMusic.play().catch(err => {
+    console.log("Autoplay blocked, waiting for interaction:", err);
+  });
+}
+document.addEventListener("click", playMusic, { once: true });
+document.addEventListener("keydown", playMusic, { once: true });
+</script>
+</body>
+</html>
